@@ -23,10 +23,10 @@
 
 namespace ParaFROST {
 
-        size_t RADIXBITS			= 8;
-        size_t RADIXWIDTH			= (1 << RADIXBITS);
-        size_t RADIXBYTES			= (RADIXWIDTH * sizeof(size_t));
-        size_t RADIXMASK			= (RADIXWIDTH - 1);
+        const size_t RADIXBITS			= 8;
+        const size_t RADIXWIDTH			= (1 << RADIXBITS);
+        const size_t RADIXBYTES			= (RADIXWIDTH * sizeof(size_t));
+        const size_t RADIXMASK			= (RADIXWIDTH - 1);
 
         static size_t RADIXBUFFER[RADIXWIDTH];
 
