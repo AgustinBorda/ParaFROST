@@ -46,6 +46,8 @@ INT_OPT opt_ve_clause_max("veclausemax", "maximum resolvent size (0: no limit)",
 INT_OPT opt_xor_max_arity("xormaxarity", "maximum XOR fanin size", 10, INT32R(2, 20));
 
 // solver options
+int verbose = 0;
+bool quiet_en = true;
 BOOL_OPT opt_autarky_en("autarky", "enable autarky reasoning as in Look-ahead solvers", true);
 BOOL_OPT opt_autarky_sleep_en("autarkysleep", "allow autarky reasoning to sleep", true);
 BOOL_OPT opt_boundsearch_en("boundsearch", "activate search bounds on decisions and/or conflicts", false);
