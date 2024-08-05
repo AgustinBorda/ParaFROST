@@ -19,7 +19,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "sort.h"
 #include "input.h"
 #include "control.h"
-#include "version.h"
 
 namespace ParaFROST {
 
@@ -27,7 +26,6 @@ namespace ParaFROST {
 
     void printUsage(int argc, char** argv, bool verbose)
     {
-        PFNAME("ParaFROST (Parallel Formal ReasOning about Satisfiability)", version());
         PFAUTHORS("Muhammad Osama Mahmoud");
         PFLOG0("");
         uint64 sysmem = 0;
