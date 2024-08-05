@@ -36,7 +36,6 @@ Solver::Solver() :
 	, mapped(false)
 	, simpstate(AWAKEN_SUCC)
 {
-	PFNAME("Solver (Parallel Formal Reasoning On Satisfiability)", version());
 	getCPUInfo(stats.sysmem);
 	getBuildInfo();
 	initSolver();
