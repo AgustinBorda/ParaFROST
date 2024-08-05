@@ -22,11 +22,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "simplify.h" 
 using namespace ParaFROST;
 
-#if defined(__linux__) || defined(__CYGWIN__) 
 #define COUNTFLIPS(X) while (__builtin_parity(++X)); 
-#elif defined(_WIN32)
-#define COUNTFLIPS(X) while (__popcnt(++X) & 1); 
-#endif
 
 inline void freezeArities(OL& me, OL& other)
 {

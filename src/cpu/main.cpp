@@ -19,6 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "control.h"
 #include "solve.h"
 #include "version.h"
+#include <iostream>
 
 using namespace ParaFROST;
 
@@ -56,14 +57,15 @@ int main(int argc, char **argv)
 		}
 		signal_handler(handler_terminate);
 		string formula = argc > 1 ? argv[1] : "";
-		Solver* parafrost = new Solver(formula);
+		Solver* parafrost = new Solver("");
 		solver = parafrost;
 		if (opt_timeout > 0) set_timeout(opt_timeout);
 		if (opt_memoryout > 0) set_memoryout(opt_memoryout);
 		signal_handler(handler_mercy_interrupt, handler_mercy_timeout);
-		parafrost->solve();
+		Lits_t *lits = new Lits_t();
+		parafrost->isolve(*lits);
+		PRINT("%d",parafrost->varValue(1));
 		if (!quiet_en) PFLOG0("");
-		PFLOGN2(1, " Cleaning up..");
 		solver = NULL;
 		delete parafrost;
 		PFLDONE(1, 5);

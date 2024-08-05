@@ -63,6 +63,10 @@ void MODEL::printResolved()
 	PRINT(")%s\n", CNORMAL);
 }
 
+bool MODEL::varValue(uint32 v) {
+	return value[v];
+}
+
 void MODEL::print()
 {
 	if (!extended) {

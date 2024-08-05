@@ -84,6 +84,7 @@ uint32 Solver::iadd()
 
 bool Solver::itoClause(Lits_t& c, Lits_t& org)
 {
+
 	if (org.empty()) {
 		learnEmpty();
 		PFLOG2(2, "  original clause is empty.");
@@ -92,8 +93,7 @@ bool Solver::itoClause(Lits_t& c, Lits_t& org)
 	assert(c.empty());
 	assert(verifyMarkings(imarks, org));
 	bool satisfied = false;
-	if (verbose >= 3) printOriginal(org);
-	PFLOGN2(3, "  adding mapped clause  ( ");
+
 	forall_clause(org, k) {
 		const uint32 orglit = *k;
 		assert(orglit > 1 && orglit < NOVAR);

@@ -57,7 +57,7 @@ namespace ParaFROST {
 		inline int		lit2int			(const uint32& lit) const { return SIGN(lit) ? -int(ABS(lit)) : int(ABS(lit)); }
 		inline LIT_ST	operator[]		(const uint32& v)	const { assert(v && v < value.size()); return value[v]; }
 		inline LIT_ST&	operator[]		(const uint32& v)		  { assert(v && v < value.size()); return value[v]; }
-
+		bool varValue(uint32 v);
 		void			saveWitness		(const uint32& witness);
 		void			saveLiteral		(const uint32& lit);
 		void			saveBinary		(const uint32& witness, const uint32& other);

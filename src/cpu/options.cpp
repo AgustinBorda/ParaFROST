@@ -269,7 +269,7 @@ void OPTION::init()
 	learntsub_max		= opt_learntsub_max;
 	gc_perc				= opt_garbage_perc;
 	// SAT competition mode
-	if (competition_en) {
+	if (false) {
 		assert(proof_path);
 		quiet_en = true, report_en = false;
 		proof_en = true, proof_nonbinary_en = false;

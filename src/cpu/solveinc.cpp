@@ -74,13 +74,8 @@ void Solver::iallocSpace()
 	PFLMEMCALL(this, 2);
 }
 
-void Solver::isolve(Lits_t& assumptions)
+bool Solver::isolve(Lits_t& assumptions)
 {
-	if (!stats.clauses.original) {
-		assert(orgs.empty());
-		PFLOGW("Formula is already SATISFIABLE by elimination");
-		return;
-	}
 	timer.start();
 	iallocSpace();
 	iunassume();
@@ -113,5 +108,5 @@ void Solver::isolve(Lits_t& assumptions)
 		}
 	}
 	timer.stop(), timer.solve += timer.cpuTime();
-	wrapup();
+	return wrapup();
 }

@@ -89,10 +89,10 @@ namespace ParaFROST {
 		TIMER			() { RESETSTRUCT(this); }
 		void start		() { _start = clock(); }
 		void stop		() { _stop = clock(); }
-		float cpuTime	() { return _cpuTime = ((float)abs(_stop - _start)) / CLOCKS_PER_SEC; }
+		float cpuTime	() { return _cpuTime = ((float)abs((long)_stop - (long)_start)) / CLOCKS_PER_SEC; }
 		void pstart		() { _start_p = clock(); }
 		void pstop		() { _stop_p = clock(); }
-		float pcpuTime	() { return _cpuTime = (((float)abs(_stop_p - _start_p)) / CLOCKS_PER_SEC) * float(1000.0); }
+		float pcpuTime	() { return _cpuTime = (((float)abs((long)_stop_p - (long)_start_p)) / CLOCKS_PER_SEC) * float(1000.0); }
 	};
 	//====================================================//
 	//                 iterators & checkers               //

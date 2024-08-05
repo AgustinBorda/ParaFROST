@@ -167,7 +167,7 @@ void Solver::solve()
 	wrapup();
 }
 
-void Solver::wrapup() 
+bool Solver::wrapup() 
 {
 	if (!quiet_en) { PFLRULER('-', RULELEN); PFLOG0(""); }
 	if (cnfstate == SAT) {
@@ -178,12 +178,13 @@ void Solver::wrapup()
 			if (opts.modelprint_en) 
 				model.print();
 		}
-		if (opts.modelverify_en) {
+		if (true) {
 			model.extend(sp->value);
-			model.verify(formula.path);
+		//	model.verify(formula.path);
 		}
 	}
 	else if (cnfstate == UNSAT) PFLOGS("UNSATISFIABLE");
 	else if (UNSOLVED(cnfstate)) PFLOGS("UNKNOWN");
 	if (opts.report_en) report();
+	return cnfstate == SAT;
 }

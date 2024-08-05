@@ -151,6 +151,9 @@ namespace ParaFROST {
 		inline bool		canRephase			() const { return opts.rephase_en && stats.conflicts > limit.rephase; }
 		inline bool		canReduce			() const { return opts.reduce_en && stats.clauses.learnt && stats.conflicts >= limit.reduce; }
 		inline bool		canCollect			() const { return cm.garbage() > (cm.size() * opts.gc_perc); }
+		inline bool varValue(uint32 var) {
+			return model.varValue(var);
+		}
 		inline bool		canProbe			() const {
 			if (!opts.probe_en) return false;
 			if (last.probe.reduces > stats.reduces) return false;
@@ -221,8 +224,6 @@ namespace ParaFROST {
 			}
 		}
 		inline void		initQueue			() {
-			if (verbose == 4) PFLOG2(2, " Initializing VMFQ Queue with %d variables..", inf.maxVar);
-			else PFLOGN2(2, " Initializing VMFQ Queue with %d variables..", inf.maxVar);
 			forall_variables(v) { vmtf.init(v), vmtf.update(v, (bumps[v] = ++bumped)); }
 			PFLDONE(2, 4);
 		}
@@ -662,7 +663,7 @@ namespace ParaFROST {
 		void	MDM					();
 		void	decide				();
 		void	report				();
-		void	wrapup				();
+		bool	wrapup				();
 		bool	parser				();
 		void	solve				();
 		void	map					(BCNF&);
@@ -853,7 +854,7 @@ namespace ParaFROST {
 		void			ianalyze			(const uint32&);
 		bool			itoClause			(Lits_t&, Lits_t&);
 		void			iassume				(Lits_t&);
-		void			isolve				(Lits_t&);
+		bool			isolve				(Lits_t&);
 		bool		    ifailed             (const uint32& v);
 		void		    ifreeze             (const uint32& v);
 		void		    iunfreeze           (const uint32& v);

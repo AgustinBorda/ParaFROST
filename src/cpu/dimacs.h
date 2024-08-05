@@ -23,6 +23,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "definitions.h"
 #include <fcntl.h>
 #include <sys/stat.h>
+#include <unistd.h>
 
 namespace ParaFROST {
 

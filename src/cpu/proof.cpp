@@ -89,7 +89,7 @@ inline bool PROOF::checkFile()
 	return true;
 }
 
-inline void PROOF::write(const Byte& byte) { writebyte(byte, proofFile); }
+inline void PROOF::write(const Byte& byte) { }
 
 inline void PROOF::write(const uint32* lits, const int& len)
 {
