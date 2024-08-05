@@ -118,7 +118,6 @@ namespace ParaFROST {
 	void handler_terminate(int)
 	{
 		fflush(stdout);
-		PFLOG1("%s%s%s", CYELLOW, "INTERRUPTED", CNORMAL);
 		PFLOGS("UNKNOWN");
 		_exit(EXIT_FAILURE);
 	}
@@ -126,15 +125,12 @@ namespace ParaFROST {
 	void handler_mercy_interrupt(int)
 	{
 		fflush(stdout);
-		PFLOG1("%s%s%s", CYELLOW, "INTERRUPTED", CNORMAL);
 		solver->interrupt();
 	}
 
 	void handler_mercy_timeout(int)
 	{
 		fflush(stdout);
-		PFLOG1("%s%s%s", CYELLOW, "TIME OUT", CNORMAL);
-		PFLOGS("UNKNOWN");
 		solver->interrupt();
 	}
 
@@ -174,8 +170,6 @@ namespace ParaFROST {
 
 	void getBuildInfo()
 	{
-		PFLOG1(" Built on %s%s%s at %s%s%s", CREPORTVAL, osystem(), CNORMAL, CREPORTVAL, date(), CNORMAL);
-		PFLOG1("       using %s%s %s%s", CREPORTVAL, compiler(), compilemode(), CNORMAL);
 	}
 
 }
