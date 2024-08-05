@@ -17,7 +17,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 **********************************************************************************/
 
 #include "solve.h" 
-#include "version.h"
 
 #if defined(__linux__)
 #include <fpu_control.h>
