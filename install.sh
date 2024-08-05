@@ -260,7 +260,7 @@ makefile=$srcdir/Makefile
 
 # default flags
 OPTIMIZE="-O3"
-FASTMATH="-use_fast_math"
+FASTMATH="-ffast-math"
 ARCH="-m${TARGET_SIZE}"
 
 log "installing ParaFROST-CPU on '$now'"
